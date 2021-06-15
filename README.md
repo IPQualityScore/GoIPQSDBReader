@@ -13,7 +13,9 @@
     </p>
     <div class="row">
 		<div class="col-md-12 xsmcode">
-			<textarea class="form-control code" onClick="this.focus();this.select()" rows="2" readonly>go get github.com/IPQualityScore/GoIPQSDBReader</textarea>
+			<pre class="highlight markdown"><code>
+			go get github.com/IPQualityScore/GoIPQSDBReader
+			</code></pre>
         </div>
     </div>
     <h6 class="text-bold headerHR">Usage</h6>
@@ -23,7 +25,7 @@
     </p>
     <div class="row">
 		<div class="col-md-12 lgcode">
-            <textarea class="form-control code" onClick="this.focus();this.select()" rows="2" readonly>
+            <pre class="highlight markdown"><code>
 ip := "8.8.0.0";
 
 reader, err := GoIPQSDBReader.Open("IPQualityScore-Reputation-IPV4-Database.ipqs");
@@ -39,7 +41,7 @@ if(err != nil){
 if(record.IsProxy){
     fmt.Println(ip + " is a proxy!");
 }
-            </textarea>
+            </code></pre>
         </div>
     </div>
     <h6 class="text-bold headerHR">IPQSRecord Struct Fields</h6>
