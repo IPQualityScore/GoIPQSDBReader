@@ -45,7 +45,7 @@ if(record.IsProxy){
     <h6 class="text-bold headerHR">IPQSRecord Struct Fields</h6>
 	<div class="spacing-10"></div>
 	<p>
-        Depending on which database file you receive some of these fields may be unavailable. If the field in question is unavailable in your database it will default to golang's default value for that type.
+        Depending on which database file you receive some of these fields may be unavailable. If the field in question is unavailable in your database it will default to Golang's default value for that type.
     </p>
     <div class="row">
 		<div class="col-md-12">
