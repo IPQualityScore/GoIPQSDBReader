@@ -6,6 +6,7 @@
 	<p>
         The IPQS Golang reader brings a new standard of performance and compression to our IP reputation and geo location services. Setting up and using the reader can be achieved in minutes.
     </p>
+    <a href="https://www.ipqualityscore.com/documentation/ip-reputation-database/golang" target="_blank">Click here to see the full Golang IPQualityScore flat file database documentation.</a>
     <h6 class="text-bold headerHR">Installation</h6>
 	<div class="spacing-10"></div>
 	<p>
