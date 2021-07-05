@@ -14,7 +14,7 @@
     <div class="row">
 		<div class="col-md-12 xsmcode">
 			<pre class="highlight markdown"><code>
-			go get github.com/IPQualityScore/GoIPQSDBReader
+go get github.com/IPQualityScore/GoIPQSDBReader
 			</code></pre>
         </div>
     </div>
