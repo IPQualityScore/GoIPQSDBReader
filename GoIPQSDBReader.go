@@ -89,8 +89,8 @@ func Open(filename string) (*FileReader, error) {
 		return file, errors.New("File does not appear to be valid, bad binary tree. EID: 6");
 	}
 
-	totaltree, br := binary.Uvarint(treeheader[1:5]);
-	if(br == 0 || totaltree == 0){
+	totaltree := uint64(binary.LittleEndian.Uint32(treeheader[1:5]));
+	if(totaltree == 0){
 		return file, errors.New("File does not appear to be valid, tree size is too small. EID: 7");
 	}
 
