@@ -61,8 +61,8 @@ func (file *FileReader) Fetch(ip string) (*IPQSRecord, error){
 
 		next := binary.LittleEndian.Uint32(read);
 		if(next == 0){
-			if(literal[position] == "1"){
-				br, err := file.Handler.ReadAt(read, file_position);
+			if(literal[position] == "0"){
+				br, err := file.Handler.ReadAt(read, file_position + int64(4));
 				if(br == 0 || err != nil){
 					return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 9)");
 				}
@@ -72,7 +72,15 @@ func (file *FileReader) Fetch(ip string) (*IPQSRecord, error){
 					return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 10)");
 				}
 			} else {
-				return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 10)");
+				br, err := file.Handler.ReadAt(read, file_position);
+				if(br == 0 || err != nil){
+					return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 9)");
+				}
+
+				next = binary.LittleEndian.Uint32(read);
+				if(next == 0){
+					return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 10)");
+				}
 			}
 		}
 
