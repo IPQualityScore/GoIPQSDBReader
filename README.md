@@ -4,13 +4,13 @@
 	<h2 class="text-bold headerHR" style="font-size: 1.5em;">Flat File Version 1.0</h2>
 	<div class="spacing-10"></div>
 	<p>
-        The IPQS Golang reader brings a new standard of performance and compression to our IP reputation and geo location services. Setting up and using the reader can be achieved in minutes.
+        Our flat file proxy detection database allows you to lookup important details about any IP address using a straight forward library. Simply install the reader, download a database and instantly check IP addresses against our large volume of data.
     </p>
-    <a href="https://www.ipqualityscore.com/documentation/ip-reputation-database/golang" target="_blank">Click here to see the full Golang IPQualityScore flat file database documentation.</a>
+    <a href="https://www.ipqualityscore.com/documentation/ip-reputation-database/golang" target="_blank">Click here to see the full Golang IPQualityScore flat file database documentation</a> or <a href="https://www.ipqualityscore.com/proxy-detection-database">click here for a more in depth explanation of what our proxy detection database does</a>.
     <h6 class="text-bold headerHR">Installation</h6>
 	<div class="spacing-10"></div>
 	<p>
-        Installation can be achieved by issuing one command as follows:
+        Installation can be achieved via go's built in package manager like such:
     </p>
     <div class="row">
 		<div class="col-md-12 xsmcode">
