@@ -23,6 +23,8 @@ type FileReader struct {
 	Valid bool;
 	BinaryData bool;
 	Columns map[int]*Column;
+
+	BlacklistFile bool;
 }
 
 func (file *FileReader) Fetch(ip string) (*IPQSRecord, error){
@@ -61,25 +63,31 @@ func (file *FileReader) Fetch(ip string) (*IPQSRecord, error){
 			file_position = int64(binary.LittleEndian.Uint32(read[4:8]));
 		}
 
-		if(file_position == 0){
-			for i := 0; i <= position; i++ {
-				if(literal[position-i] == "1"){
-					literal[position-i] = "0";
-					
-					for n := (position - i + 1); n < len(literal); n++ {
-						literal[n] = "1";
+		if(!file.BlacklistFile){
+			if(file_position == 0){
+				for i := 0; i <= position; i++ {
+					if(literal[position-i] == "1"){
+						literal[position-i] = "0";
+						
+						for n := (position - i + 1); n < len(literal); n++ {
+							literal[n] = "1";
+						}
+
+						position = position - i;
+						file_position = previous[position];
+						break;
 					}
-
-					position = position - i;
-					file_position = previous[position];
-					break;
 				}
-			}
 
-			continue;
+				continue;
+			}
 		}
 		
 		if(file_position < file.TreeEnd){
+			if(file_position == 0){
+				break;
+			}
+			
 			position++;
 			continue;
 		}

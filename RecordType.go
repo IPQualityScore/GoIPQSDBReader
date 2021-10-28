@@ -7,12 +7,23 @@ type RecordType struct {
 const (
 	IPv4Map Bit = 1 << iota
 	IPv6Map
+	IsBlacklistFile
+	ReservedSeven
+	ReservedEight
+	ReservedNine
+	ReservedTen
+	BinaryData
+)
+
+const (
+	ReservedEleven Bit = 1 << iota
+	ReservedTwelve
 	TreeData
 	StringData
 	SmallIntData
 	IntData
 	FloatData
-	BinaryData
+	ReservedThirteen
 )
 
 func (bm *RecordType) Has(flag Bit) bool {
@@ -24,14 +35,6 @@ func (bm *RecordType) Set(flag Bit) {
 }
 
 func (bm *RecordType) ToString() string {
-	if(bm.Has(IPv4Map)){
-		return "IPv4Map";
-	}
-
-	if(bm.Has(IPv6Map)){
-		return "IPv6Map";
-	}
-
 	if(bm.Has(TreeData)){
 		return "Tree";
 	}

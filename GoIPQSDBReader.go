@@ -36,6 +36,10 @@ func Open(filename string) (*FileReader, error) {
 		file.IPv6 = true;
 	}
 
+	if(fileheader.Has(IsBlacklistFile)){
+		file.BlacklistFile = true;
+	}
+
 	if(file.Valid == false){
 		return file, errors.New("Invalid file format, invalid first byte, EID 1.");
 	}
