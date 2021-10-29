@@ -47,14 +47,14 @@ func (file *FileReader) Fetch(ip string) (*IPQSRecord, error){
 
 		// Read tree.
 		if(len(literal) <= position){
-			return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 8)");
+			return record, errors.New("Invalid or nonexistent IP address specified for lookup. (EID: 8)");
 		}
 		
 		read := make([]byte, 8);
 
 		br, err := file.Handler.ReadAt(read, file_position);
 		if(br == 0 || err != nil){
-			return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 9)");
+			return record, errors.New("Invalid or nonexistent IP address specified for lookup. (EID: 9)");
 		}
 
 		if(literal[position] == "0"){
@@ -97,13 +97,13 @@ func (file *FileReader) Fetch(ip string) (*IPQSRecord, error){
 
 		br, err = file.Handler.ReadAt(raw, file_position);
 		if(br == 0 || err != nil){
-			return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 11)");
+			return record, errors.New("Invalid or nonexistent IP address specified for lookup. (EID: 11)");
 		}
 
 		return parseRecord(record, raw, file);
 	}
 
-	return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 12)");
+	return record, errors.New("Invalid or nonexistent IP address specified for lookup. (EID: 12)");
 }
 
 func parseRecord(record *IPQSRecord, raw []byte, file *FileReader) (*IPQSRecord, error){
@@ -131,7 +131,7 @@ func parseRecord(record *IPQSRecord, raw []byte, file *FileReader) (*IPQSRecord,
 	for i := 0; i < len(file.Columns); i++ {
 		c, e0 := file.Columns[i];
 		if(e0 == false){
-			return record, errors.New("Invalid or nonexistant IP address specified for lookup. (EID: 12)");
+			return record, errors.New("Invalid or nonexistent IP address specified for lookup. (EID: 12)");
 		}
 
 		var value string;
