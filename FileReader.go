@@ -31,9 +31,17 @@ func (file *FileReader) Fetch(ip string) (*IPQSRecord, error){
 	record := &IPQSRecord{};
 
 	if(file.IPv6 && strings.Contains(ip, ".")){
-		return record, errors.New("Attemtped to look up IPv4 using IPv6 database file. Aborting.");
+		return record, errors.New("Attempted to look up IPv4 using IPv6 database file. Aborting.");
 	} else if(!file.IPv6 && strings.Contains(ip, ":")){
-		return record, errors.New("Attemtped to look up IPv6 using IPv4 database file. Aborting.");
+		return record, errors.New("Attempted to look up IPv6 using IPv4 database file. Aborting.");
+	}
+
+	if(!file.IPv6){
+		_, subnet, _ := net.ParseCIDR("0.0.0.0/8")
+		incomingIP := net.ParseIP(ip)
+		if(subnet.Contains(incomingIP)) {
+			return record, errors.New("Attempted to look up ip in 0.0.0.0/8 range. Aborting.")
+		}
 	}
 
 	position := 0;
