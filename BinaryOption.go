@@ -1,11 +1,11 @@
-package GoIPQSDBReader;
+package GoIPQSDBReader
 
 type BinaryOption struct {
-	Data Bit;
+	Data Bit
 }
 
 func (bm *BinaryOption) Has(flag Bit) bool {
-	return bm.Data&flag != 0;
+	return bm.Data&flag != 0
 }
 
 // Binary Option Bit One
