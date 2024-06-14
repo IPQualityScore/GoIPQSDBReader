@@ -4,19 +4,13 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
-	"os"
 )
 
 var GOLANG_IPQS_READER_VERSION = byte(1)
 
-func Open(filename string) (*FileReader, error) {
+func Open(r *bytes.Reader) (*FileReader, error) {
 	file := &FileReader{Columns: make(map[int]*Column)}
-
-	var ferr error
-	file.Handler, ferr = os.Open(filename)
-	if ferr != nil {
-		return file, ferr
-	}
+	file.Handler = r
 
 	header := make([]byte, 11)
 	bl, err := file.Handler.Read(header)
