@@ -1,7 +1,7 @@
-package GoIPQSDBReader;
+package GoIPQSDBReader
 
 type RecordType struct {
-	Data Bit;
+	Data Bit
 }
 
 const (
@@ -27,33 +27,33 @@ const (
 )
 
 func (bm *RecordType) Has(flag Bit) bool {
-	return bm.Data&flag != 0;
+	return bm.Data&flag != 0
 }
 
-func (bm *RecordType) Set(flag Bit) { 
-	bm.Data = bm.Data | flag;
+func (bm *RecordType) Set(flag Bit) {
+	bm.Data = bm.Data | flag
 }
 
 func (bm *RecordType) ToString() string {
-	if(bm.Has(TreeData)){
-		return "Tree";
+	if bm.Has(TreeData) {
+		return "Tree"
 	}
 
-	if(bm.Has(StringData)){
-		return "String";
+	if bm.Has(StringData) {
+		return "String"
 	}
 
-	if(bm.Has(SmallIntData)){
-		return "Small Int";
+	if bm.Has(SmallIntData) {
+		return "Small Int"
 	}
 
-	if(bm.Has(IntData)){
-		return "Int";
+	if bm.Has(IntData) {
+		return "Int"
 	}
 
-	if(bm.Has(FloatData)){
-		return "Float";
+	if bm.Has(FloatData) {
+		return "Float"
 	}
 
-	return "Unknown";
+	return "Unknown"
 }
