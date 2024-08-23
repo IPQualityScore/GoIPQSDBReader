@@ -13,10 +13,12 @@ func Open(filename string) (*FileReader, error) {
 	file := &FileReader{Columns: make(map[int]*Column)};
 	
 	var ferr error;
-	file.Handler, ferr = os.Open(filename);
-	if(ferr != nil){
-		return file, ferr;
+	fileBytes, ferr := os.ReadFile(filename)
+	if ferr != nil {
+		return file, ferr
 	}
+
+	file.Handler = *bytes.NewReader(fileBytes)
 	
 	header := make([]byte, 11);
 	bl, err := file.Handler.Read(header);

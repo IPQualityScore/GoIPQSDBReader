@@ -1,18 +1,18 @@
 package GoIPQSDBReader;
 
 import (
-	"os";
-	"net";
-	"fmt";
-	"math";
-	"strconv";
-	"errors";
-	"strings";
-	"encoding/binary";
+	"bytes"
+	"encoding/binary"
+	"errors"
+	"fmt"
+	"math"
+	"net"
+	"strconv"
+	"strings"
 );
 
 type FileReader struct {
-	Handler *os.File;
+	Handler bytes.Reader;
 	TotalBytes uint64;
 	RecordBytes uint64;
 
