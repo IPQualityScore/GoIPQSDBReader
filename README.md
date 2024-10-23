@@ -300,6 +300,15 @@ if(record.IsProxy){
                         </td>
                     </tr>
                     <tr>
+						<td>record.Zipcode</td>
+						<td>zipcode</td>
+						<td>
+                            <p>
+                                Suspected Zipcode of the IP address if available or empty string if unknown.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
 						<td>record.FraudScore</td>
 						<td>map[int]int</td>
 						<td>
