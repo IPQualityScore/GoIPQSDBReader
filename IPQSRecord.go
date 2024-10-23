@@ -24,6 +24,8 @@ type IPQSRecord struct {
 	Region string
 	ISP string
 	Organization string
+	Zipcode string
+	Hostname string
 	ASN int
 	Timezone string
 	Latitude float32

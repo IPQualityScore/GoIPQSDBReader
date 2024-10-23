@@ -205,6 +205,10 @@ func parseRecord(record *IPQSRecord, raw []byte, file *FileReader) (*IPQSRecord,
 				record.Organization = value;
 			case "Timezone":
 				record.Timezone = value;
+			case "Zipcode":
+				record.Zipcode = value;
+			case "Hostname":
+				record.Hostname = value;
 		}
 	}
 
