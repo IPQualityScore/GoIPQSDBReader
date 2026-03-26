@@ -1,7 +1,7 @@
 <div class="documentation_overview">
 	<h1 class="doc-title">IPQualityScore IP Address Reputation &amp; Proxy Detection Golang DB Reader</h1>
 	<div class="spacing-10"></div>
-	<h2 class="text-bold headerHR" style="font-size: 1.5em;">Flat File Version 1.0</h2>
+	<h2 class="text-bold headerHR" style="font-size: 1.5em;">Flat File Version 2.0</h2>
 	<div class="spacing-10"></div>
 	<p>
         Our flat file proxy detection database allows you to lookup important details about any IP address using a straight forward library. Simply install the reader, download a database and instantly check IP addresses against our large volume of data.
