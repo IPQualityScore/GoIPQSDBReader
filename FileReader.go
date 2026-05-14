@@ -80,7 +80,7 @@ func (file *FileReader) Fetch(ip string) (*IPQSRecord, error) {
 			if file.Version == 0x01 {
 				file_position = int64(binary.LittleEndian.Uint32(read[0:4]))
 			} else {
-				file_position = int64(binary.LittleEndian.Uint32(read[0:8]))
+				file_position = int64(binary.LittleEndian.Uint64(read[0:8]))
 			}
 		} else {
 			if file.Version == 0x01 {
