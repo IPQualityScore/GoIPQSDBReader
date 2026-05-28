@@ -42,6 +42,8 @@ if(err != nil){
 if(record.IsProxy){
     fmt.Println(ip + " is a proxy!");
 }
+
+reader.Close();
             </code></pre>
         </div>
     </div>

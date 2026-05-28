@@ -1,18 +1,18 @@
 package GoIPQSDBReader
 
 import (
-	"bytes"
 	"encoding/binary"
 	"errors"
 	"fmt"
 	"math"
 	"net"
+	"os"
 	"strconv"
 	"strings"
 )
 
 type FileReader struct {
-	Handler     bytes.Reader
+	Handler     *os.File
 	TotalBytes  uint64
 	RecordBytes uint64
 
@@ -338,4 +338,8 @@ func convertIPToBinaryLitteral(ipv6 bool, ip string) []string {
 	}
 
 	return result
+}
+
+func (file *FileReader) Close() {
+	file.Handler.Close()
 }
